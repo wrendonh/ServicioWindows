@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Castle.Aop.Windsor</name>
+    </assembly>
+    <members>
+        <member name="T:Castle.Aop.Windsor.InterceptorFacility">
+            <summary />
+        </member>
+        <member name="M:Castle.Aop.Windsor.InterceptorFacility.Init">
+            <summary />
+        </member>
+        <member name="T:Castle.Aop.Windsor.ServiceLocatorAdapter">
+            <summary />
+        </member>
+        <member name="M:Castle.Aop.Windsor.ServiceLocatorAdapter.#ctor(Castle.MicroKernel.IKernel)">
+            <summary />
+            <param name="kernel"></param>
+        </member>
+        <member name="M:Castle.Aop.Windsor.ServiceLocatorAdapter.DoGetInstance(System.Type,System.String)">
+            <summary />
+            <param name="serviceType"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Castle.Aop.Windsor.ServiceLocatorAdapter.DoGetAllInstances(System.Type)">
+            <summary />
+            <param name="serviceType"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
