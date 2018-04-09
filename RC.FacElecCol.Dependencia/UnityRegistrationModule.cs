@@ -16,10 +16,7 @@
             
             container.RegisterType<IActividadesFachada, ActividadesFachada>();
             container.RegisterType<IActividadesRn, ActividadesRn>();
-            
-            container.RegisterType<IActividadesPeriodicasFachada, ActividadesPeriodicasFachada>();
-            container.RegisterType<IActividadesPeriodicasRn, ActividadesPeriodicasRn>();
-            
+                        
             container.RegisterType<IUnitOfWorkFactory, RentingUnitOfWorkFactory>();
         }
     }

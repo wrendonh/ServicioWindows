@@ -13,23 +13,12 @@
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
+    using System;
 
     public class ActividadesRn : IActividadesRn
     {
         [Dependency]
         public IUnitOfWorkFactory UnitOfWorkFactory { get; set; }
-
-        public ConcurrentDictionary<int, Task> GetRunningTasks { get; }
-
-        public bool EjecutarActividad(ActividadesDto actividad)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool EjecutarActividadAsincronamente(ActividadesDto actividad, CancellationToken token)
-        {
-            throw new System.NotImplementedException();
-        }
 
         public bool CambiarEstadoActividadesEnEjecucionANinguno()
         {
@@ -55,6 +44,16 @@
         {
             List<FeCActividades> actividades = repository.CargarTodo();
             return actividades;
+        }
+
+        public ActividadesDto CargarActividadPorId(int idActividad)
+        {
+            using (var unitOfWork = UnitOfWorkFactory.GetUnitOfWork())
+            {
+                IGenericRepository<FeCActividades> repository = unitOfWork.GetGenericRepository<FeCActividades>();
+                ActividadesDto actividad = repository.CargarActividadPorId(idActividad);
+                return actividad;
+            }
         }
     }
 }

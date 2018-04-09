@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RC.FacElecCol.ServicioWindows", "RC.FacElecCol.WinService\RC.FacElecCol.ServicioWindows.csproj", "{57ADFC1A-6E13-40D3-B956-38B80DC7085A}"
 EndProject
@@ -33,9 +33,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RC.FacElecCol.Utilidad", "R
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06. Pruebas", "06. Pruebas", "{646D547E-1259-44C2-8FD5-B2470FA17858}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Renting.FeCo.PruebaUnitaria", "RC.FacElecCol.PruebaUnitaria\Renting.FeCo.PruebaUnitaria.csproj", "{4430F849-12C3-421A-993B-516FA133AE8B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RC.FacElecCol.Aspecto", "RC.FacElecCol.Aspecto\RC.FacElecCol.Aspecto.csproj", "{774E5D78-42D2-4D76-8B65-25F6A20DE312}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RC.FacElecCol.PruebaUnitaria", "RC.FacElecCol.PruebaUnitaria\RC.FacElecCol.PruebaUnitaria.csproj", "{61E9392D-1145-41C5-AFB7-C04238F27BA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,14 +79,14 @@ Global
 		{D3845DAB-4C84-4137-BC4A-69F48E7ADB46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3845DAB-4C84-4137-BC4A-69F48E7ADB46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3845DAB-4C84-4137-BC4A-69F48E7ADB46}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4430F849-12C3-421A-993B-516FA133AE8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4430F849-12C3-421A-993B-516FA133AE8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4430F849-12C3-421A-993B-516FA133AE8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4430F849-12C3-421A-993B-516FA133AE8B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{774E5D78-42D2-4D76-8B65-25F6A20DE312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{774E5D78-42D2-4D76-8B65-25F6A20DE312}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{774E5D78-42D2-4D76-8B65-25F6A20DE312}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{774E5D78-42D2-4D76-8B65-25F6A20DE312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61E9392D-1145-41C5-AFB7-C04238F27BA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61E9392D-1145-41C5-AFB7-C04238F27BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61E9392D-1145-41C5-AFB7-C04238F27BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61E9392D-1145-41C5-AFB7-C04238F27BA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -101,8 +101,8 @@ Global
 		{81043323-78A6-40BB-B86A-7FA9F0D8469C} = {5517667F-BFD8-4575-AF4D-A4E620A44DA2}
 		{CC85C3E6-8709-49DE-A86D-6ED2ADB18263} = {5517667F-BFD8-4575-AF4D-A4E620A44DA2}
 		{D3845DAB-4C84-4137-BC4A-69F48E7ADB46} = {5517667F-BFD8-4575-AF4D-A4E620A44DA2}
-		{4430F849-12C3-421A-993B-516FA133AE8B} = {646D547E-1259-44C2-8FD5-B2470FA17858}
 		{774E5D78-42D2-4D76-8B65-25F6A20DE312} = {EBCDAFC3-A0D4-475C-BC44-41FB50DE789A}
+		{61E9392D-1145-41C5-AFB7-C04238F27BA1} = {646D547E-1259-44C2-8FD5-B2470FA17858}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EDA89885-FE59-424D-B940-BA6E749785E4}

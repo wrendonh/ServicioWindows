@@ -21,8 +21,7 @@
 
         public void InstallSpecificAspect(IWindsorContainer container)
         {
-            container.Register(Component.For<IActividadesFachada>().ImplementedBy<ActividadesFachada>().Interceptors(typeof(ExcepcionAttribute)));
-            container.Register(Component.For<IActividadesPeriodicasFachada>().ImplementedBy<ActividadesPeriodicasFachada>().Interceptors(typeof(ExcepcionAttribute)));           
+            container.Register(Component.For<IActividadesFachada>().ImplementedBy<ActividadesFachada>().Interceptors(typeof(ExcepcionAttribute)));            
         }
     }
 }

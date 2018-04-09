@@ -43,8 +43,6 @@
   <ItemGroup>
     <Compile Include="Atributos\EnumerateStringValueAttribute.cs" />
     <Compile Include="Entidades\ActividadesDto.cs" />
-    <Compile Include="Entidades\ActividadesPeriodicasDto.cs" />
-    <Compile Include="Entidades\ActividadesProgramadasDto.cs" />
     <Compile Include="Entidades\MensajeDto.cs" />
     <Compile Include="Entidades\RentingModel\FeCActividadesPeriodicas.cs" />
     <Compile Include="Entidades\TareasDto.cs" />
@@ -52,7 +50,7 @@
     <Compile Include="Entidades\RentingModel\FeCActividadesProgramadas.cs" />
     <Compile Include="Entidades\RentingModel\FeCEstadosActividades.cs" />
     <Compile Include="Entidades\RentingModel\FeCTareas.cs" />
-    <Compile Include="Enums\Actividades.cs" />
+    <Compile Include="Enums\Tareas.cs" />
     <Compile Include="Enums\EstadosActividades.cs" />
     <Compile Include="Enums\TipoExcepciones.cs" />
     <Compile Include="Enums\TipoMensajes.cs" />

@@ -44,9 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Implementacion\ActividadesPeriodicasRn.cs" />
     <Compile Include="Implementacion\ActividadesRn.cs" />
-    <Compile Include="Interfaz\IActividadesPeriodicasRn.cs" />
     <Compile Include="Interfaz\IActividadesRn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

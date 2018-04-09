@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Implementacion\ActividadesPeriodicasRepositorio.cs" />
     <Compile Include="Implementacion\ActividadesRepositorio.cs" />
     <Compile Include="Implementacion\GenericoRepositorio.cs" />
     <Compile Include="Interfaz\IGenericoRepositorio.cs" />

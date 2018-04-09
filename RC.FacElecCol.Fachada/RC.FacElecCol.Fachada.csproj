@@ -52,10 +52,8 @@
   <ItemGroup>
     <Compile Include="Aspectos\DataInstaller.cs" />
     <Compile Include="Implementacion\ActividadesFachada.cs" />
-    <Compile Include="Implementacion\ActividadesPeriodicasFachada.cs" />
     <Compile Include="Implementacion\BaseFachada.cs" />
     <Compile Include="Interfaz\IActividadesFachada.cs" />
-    <Compile Include="Interfaz\IActividadesPeriodicasFachada.cs" />
     <Compile Include="Interfaz\IBaseFachada.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -37,6 +37,6 @@
 
         IEnumerable<T> ExecuteCustomStoredProc<T>(string commandName, params object[] parameters);
 
-        int Save();
+        int Save();        
     }
 }

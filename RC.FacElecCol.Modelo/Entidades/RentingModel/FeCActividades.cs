@@ -24,6 +24,8 @@
         
         public bool CorrerAsincronamente { get; set; }
 
+        public bool EsPeriodica { get; set; }
+
         public virtual FeCEstadosActividades EstadoActividad { get; set; }
 
         public virtual FeCTareas Tarea { get; set; }

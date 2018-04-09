@@ -2,8 +2,12 @@
 {
     using Fachada.Interfaz;
     using log4net;
+    using RC.FacElecCol.Modelo.Entidades;
     using RC.FacElecCol.Modelo.Enums;
     using System;
+    using System.Linq;
+    using System.ServiceModel;
+    using System.Threading.Tasks;
     using System.Timers;
 
     public partial class ServicioWindows : WinServiceBase
@@ -13,15 +17,14 @@
         #endregion
 
         #region Timer
-        Timer EnviarComprobanteTimer;
+        Timer GeneralTimer;
         #endregion
 
         #region const
         private const string messageUnhandledException = "Unhandle Exception: ";
         #endregion
 
-        private IActividadesPeriodicasFachada _actividadesPeriodicas;
-        //private IPeriodicActivityService _periodicActivityservice;
+        IActividadesFachada _actividades;
 
         public ServicioWindows()
         {
@@ -35,16 +38,9 @@
 
             try
             {
-                IActividadesFachada actividades = Kernel.Resolve<IActividadesFachada>(GetService<IActividadesFachada>());
-                actividades.MarcarActividadesEnEjecucionAEstadoNinguno();
+                _actividades = Kernel.Resolve<IActividadesFachada>(GetService<IActividadesFachada>());
+                _actividades.MarcarActividadesEnEjecucionAEstadoNinguno();
                 InicializarTimers();
-
-                //_actividadesPeriodicas = Kernel.Resolve<IActividadesPeriodicasFachada>(GetService<IActividadesPeriodicasFachada>());
-
-                //_cancellationTokenSource = new CancellationTokenSource();
-                //CancellationToken token = _cancellationTokenSource.Token;
-
-                //_processActivities = Task.Run(() => VerificaYEjecutaActividadesAsincronamente(token), token);
             }
             catch (Exception e)
             {
@@ -55,23 +51,7 @@
 
         protected override void OnStop()
         {
-            try
-            {
-                _actividadesPeriodicas.Dispose();
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex);
-            }
 
-            try
-            {
-                //_scheduledActivityservice.Dispose();
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex);
-            }
         }
 
         public void OnDebug()
@@ -93,51 +73,47 @@
 
         private void InicializarTimers()
         {
-            EnviarComprobanteTimer = new Timer();
+            GeneralTimer = new Timer();
 
-            ConfigurarTimer(EnviarComprobanteTimer, Actividades.EnviarDocumento);
+            ConfigurarTimer(GeneralTimer);
         }
 
-        private void ConfigurarTimer(Timer timer, Actividades parameterTimeName)
+        private void ConfigurarTimer(Timer timer)
         {
-            SetInterval(timer);
+            timer.Interval = Convert.ToDouble(300000);
+            timer.Elapsed += new ElapsedEventHandler(EncolarGeneralTimer_Elapsed);
+            timer.Enabled = true;
+        }
 
-            switch (parameterTimeName)
+        private void EncolarGeneralTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            var listaActividades = Enum.GetValues(typeof(Tareas)).Cast<Tareas>().ToList();
+            Parallel.ForEach(listaActividades, actividad =>
             {
-                case Actividades.EnviarDocumento:
-                    timer.Elapsed += new ElapsedEventHandler(EncolarEnviarDocumentoTimer_Elapsed);
-                    timer.Enabled = true;
-                    break;
+                EjecutarActividad(actividad);
+            });
+        }
+
+        private void EjecutarActividad(Tareas actividad)
+        {
+            ActividadesDto actividadPorEjecutar = _actividades.CargarActividadPorId((int)actividad);
+            if (actividadPorEjecutar.PorEjecutar)
+            {
+                RentingFacElecCol.RentingFeCoServiceClient servicioWcf = new RentingFacElecCol.RentingFeCoServiceClient();
+                //using (new OperationContextScope(servicioWcf.InnerChannel))
+                //{
+
+                //}
+
+                switch (actividad)
+                {
+                    case Tareas.GenerarDocumento:
+                        servicioWcf.GenerarXml();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
-
-        private void SetInterval(Timer timer)
-        {
-            try
-            {
-                //SettingBL settingsBL = new SettingBL();
-                //ResponseDto<SettingDto> responseSetting = settingsBL.GetById(parameterTimeName);
-                timer.Interval = Convert.ToDouble(30000);
-            }
-            catch (Exception ex)
-            {
-                timer.Interval = 60000;
-            }
-        }
-
-
-        private void EncolarEnviarDocumentoTimer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            RentingFacElecCol.RentingFeCoServiceClient test = new RentingFacElecCol.RentingFeCoServiceClient();
-            test.GenerarXml();
-        }
-
-        private void ValidaYEjecutaActividades()
-        {
-            _actividadesPeriodicas.EjecutarTodasActividadesPeriodicas();
-            //_scheduledActivityservice.ExecuteAllScheduledActivities(token);
-        }
-
-
     }
 }

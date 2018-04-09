@@ -6,6 +6,7 @@
     using RC.FacElecCol.Aspecto;
     using ReglasNegocio.Interfaz;
     using System.Threading;
+    using System;
 
     [Excepcion]
     public class ActividadesFachada : BaseFachada, IActividadesFachada
@@ -13,14 +14,9 @@
         [Dependency]
         public IActividadesRn ActividadesRn { get; set; }
 
-        public bool ExecuteActivity(ActividadesDto actividad)
+        public ActividadesDto CargarActividadPorId(int idActividad)
         {
-            return ActividadesRn.EjecutarActividad(actividad);
-        }
-
-        public bool ExecuteActivityAsync(ActividadesDto actividad, CancellationToken token)
-        {
-            return ActividadesRn.EjecutarActividadAsincronamente(actividad, token);
+            return ActividadesRn.CargarActividadPorId(idActividad);
         }
 
         public bool MarcarActividadesEnEjecucionAEstadoNinguno()

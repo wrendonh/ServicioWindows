@@ -5,8 +5,7 @@
 
     public interface IActividadesFachada : IBaseFachada
     {
-        bool ExecuteActivity(ActividadesDto actividad);
-        bool ExecuteActivityAsync(ActividadesDto actividad, CancellationToken token);
         bool MarcarActividadesEnEjecucionAEstadoNinguno();
+        ActividadesDto CargarActividadPorId(int idActividad);
     }
 }
